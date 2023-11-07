@@ -82,6 +82,17 @@ int main() {
     printf("Valores da lista após a remoção: ");
     imprimirLista(head);
 
+    size_t tamanho_celula = tamanhoCelula();
+    size_t memoria_disponivel_gb = 8;  // 8 GB de memória
+
+    // Converter GB para bytes (1 GB = 1024 MB, 1 MB = 1024 KB, 1 KB = 1024 bytes)
+    size_t memoria_disponivel = memoria_disponivel_gb * 1024 * 1024 * 1024;
+
+    size_t numero_maximo_elementos = memoria_disponivel / tamanho_celula;
+
+    printf("Número máximo de elementos possíveis na fila: %lu\n", numero_maximo_elementos);
+
+
     // Liberar a memória alocada
     while (head != NULL) {
         celula *temp = head;
